@@ -31,10 +31,10 @@ export function Header() {
       <div className="mx-auto flex h-20 w-[min(1440px,calc(100%-40px))] items-center justify-between">
         <a
           href="#hero"
-          className="font-serif text-3xl font-semibold tracking-[-0.04em] text-[#F8F5FF]"
-          aria-label="Nathalie García"
+          className="text-[1.05rem] font-extrabold uppercase leading-none tracking-[0.34em] text-[#F8F5FF] transition duration-300 hover:text-[#C084FC]"
+          aria-label="MAIA"
         >
-          N.
+          MAIA
         </a>
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map(([label, href]) => (

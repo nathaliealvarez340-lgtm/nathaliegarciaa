@@ -4,26 +4,28 @@ import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 
 export function Hero() {
   const { scrollY } = useScroll();
-  const visualY = useTransform(scrollY, [0, 900], [0, 58]);
-  const visualScale = useTransform(scrollY, [0, 900], [1, 1.055]);
+  const visualY = useTransform(scrollY, [0, 900], [0, 42]);
+  const visualScale = useTransform(scrollY, [0, 900], [1.04, 1.09]);
 
   return (
     <section
       id="hero"
       className="relative min-h-screen overflow-hidden bg-[#02020A] pt-24"
     >
+      <motion.div
+        className="bg-hero-image absolute inset-0 z-0 bg-cover bg-[center_38%] opacity-50 blur-[0.5px] saturate-[0.82]"
+        style={{ y: visualY, scale: visualScale }}
+        initial={{ opacity: 0, scale: 1.02 }}
+        animate={{ opacity: 0.5, scale: 1.04 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      />
       <div className="hero-grain absolute inset-0 z-[1]" />
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_74%_34%,rgba(168,85,247,0.18),transparent_27rem),radial-gradient(circle_at_21%_84%,rgba(91,33,182,0.15),transparent_30rem),linear-gradient(135deg,#02020A_0%,#03020B_44%,#070414_100%)]"
+        className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_74%_34%,rgba(168,85,247,0.19),transparent_28rem),radial-gradient(circle_at_18%_82%,rgba(91,33,182,0.13),transparent_30rem),linear-gradient(135deg,rgba(2,2,10,0.92)_0%,rgba(3,2,11,0.74)_48%,rgba(7,4,20,0.62)_100%)]"
         animate={{ opacity: [0.84, 1, 0.84] }}
         transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
       />
-      <div className="absolute inset-0 z-[2] bg-[linear-gradient(90deg,rgba(2,2,10,0.98)_0%,rgba(2,2,10,0.86)_42%,rgba(2,2,10,0.32)_100%)]" />
-
-      <motion.div
-        className="bg-hero-image absolute right-[-10vw] top-0 z-[1] h-full w-[62vw] bg-cover bg-center opacity-35 mix-blend-screen blur-[1px] saturate-[0.85] md:block"
-        style={{ y: visualY, scale: visualScale }}
-      />
+      <div className="absolute inset-0 z-[2] bg-[linear-gradient(90deg,rgba(2,2,10,0.98)_0%,rgba(2,2,10,0.88)_43%,rgba(2,2,10,0.48)_100%),linear-gradient(180deg,rgba(2,2,10,0.16)_0%,rgba(2,2,10,0.44)_72%,#02020A_100%)]" />
 
       <div className="absolute right-[7vw] top-[12vh] z-[3] hidden h-[73vh] w-[34vw] max-w-[560px] lg:block">
         <motion.div
@@ -33,18 +35,18 @@ export function Hero() {
           transition={{ duration: 1.4, ease: "easeOut" }}
         />
         <motion.div
-          className="absolute bottom-[7%] right-[8%] h-[72%] w-[72%] rounded-[48%_52%_45%_55%] bg-[radial-gradient(circle_at_38%_22%,rgba(248,245,255,0.2),transparent_13%),radial-gradient(circle_at_42%_60%,rgba(168,85,247,0.34),transparent_33%),linear-gradient(150deg,rgba(255,255,255,0.09),rgba(255,255,255,0.01)_42%,rgba(0,0,0,0.78)_100%)] shadow-[inset_22px_0_54px_rgba(255,255,255,0.04),0_30px_90px_rgba(0,0,0,0.55)] backdrop-blur-sm"
+          className="absolute bottom-[7%] right-[8%] h-[72%] w-[72%] rounded-[48%_52%_45%_55%] bg-[radial-gradient(circle_at_38%_22%,rgba(248,245,255,0.16),transparent_13%),radial-gradient(circle_at_42%_60%,rgba(168,85,247,0.26),transparent_33%),linear-gradient(150deg,rgba(255,255,255,0.07),rgba(255,255,255,0.01)_42%,rgba(0,0,0,0.8)_100%)] shadow-[inset_22px_0_54px_rgba(255,255,255,0.035),0_30px_90px_rgba(0,0,0,0.55)] backdrop-blur-sm"
           initial={{ opacity: 0, x: 48, filter: "blur(14px)" }}
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.3, delay: 0.3, ease: "easeOut" }}
         />
-        <div className="absolute bottom-[18%] left-[24%] h-[62%] w-px bg-gradient-to-b from-transparent via-[#A855F7]/45 to-transparent" />
-        <div className="absolute bottom-[12%] right-[2%] h-px w-28 bg-gradient-to-r from-transparent via-[#A855F7]/70 to-transparent" />
-        <div className="absolute bottom-[15%] right-[1%] grid grid-cols-4 gap-2 opacity-60">
+        <div className="absolute bottom-[18%] left-[24%] h-[62%] w-px bg-gradient-to-b from-transparent via-[#A855F7]/40 to-transparent" />
+        <div className="absolute bottom-[12%] right-[2%] h-px w-28 bg-gradient-to-r from-transparent via-[#A855F7]/60 to-transparent" />
+        <div className="absolute bottom-[15%] right-[1%] grid grid-cols-4 gap-2 opacity-45">
           {Array.from({ length: 12 }).map((_, index) => (
             <span
               key={index}
-              className="h-7 w-px rotate-45 bg-[#A855F7]/60"
+              className="h-7 w-px rotate-45 bg-[#A855F7]/55"
             />
           ))}
         </div>
@@ -60,7 +62,7 @@ export function Hero() {
             visible: { transition: { staggerChildren: 0.12 } },
           }}
         >
-          <motion.div variants={fadeUp} className="mb-20 md:mb-24">
+          <motion.div variants={fadeUp} className="mb-16 md:mb-20">
             <p className="font-sans text-[clamp(3.3rem,6.2vw,6.6rem)] font-extrabold uppercase leading-none tracking-[0.12em] text-[#F8F5FF]">
               MAIA
             </p>
@@ -70,14 +72,14 @@ export function Hero() {
           </motion.div>
 
           <motion.p
-            className="mb-5 text-[clamp(1.9rem,4vw,4.4rem)] font-light uppercase leading-none tracking-[0.42em] text-[#F8F5FF]"
+            className="mb-4 text-[clamp(1.55rem,3.3vw,3.7rem)] font-light uppercase leading-none tracking-[0.42em] text-[#F8F5FF]"
             variants={fadeUp}
           >
             Make It
           </motion.p>
 
           <motion.h1
-            className="unstoppable-title text-[clamp(3.2rem,15vw,17rem)]"
+            className="unstoppable-title text-[clamp(3rem,12.6vw,14.2rem)]"
             variants={fadeUp}
           >
             Unstoppable

@@ -82,8 +82,8 @@ body::before {
   -webkit-background-clip: text;
   font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 900;
-  line-height: 0.72;
-  letter-spacing: -0.09em;
+  line-height: 0.76;
+  letter-spacing: -0.08em;
   text-transform: uppercase;
   text-shadow: 0 34px 70px rgba(0, 0, 0, 0.58);
 }
